@@ -49,7 +49,7 @@ public class PersonTest {
 		Person person = new Person(10, "TEST", 24, "test@work.com");
 		ObjectMapper object = new ObjectMapper();
 		String data = object.writeValueAsString(person);
-		ClientResponse response = webResource.path("webApi").path("show").type(MediaType.APPLICATION_JSON)
+		ClientResponse response = webResource.path("webApi").path("show/add").type(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON).post(ClientResponse.class, data);
 		int status = response.getStatus();
 		assertEquals(200, status);
@@ -60,7 +60,7 @@ public class PersonTest {
 		ClientConfig config = new DefaultClientConfig();
 		Client client = Client.create(config);
 		WebResource webResource = client.resource(UriBuilder.fromUri("http://localhost:8080/PersonApp1/").build());
-		ClientResponse response = webResource.path("webApi").path("show/1").type(MediaType.APPLICATION_JSON)
+		ClientResponse response = webResource.path("webApi").path("show/delete/1").type(MediaType.APPLICATION_JSON)
 				.delete(ClientResponse.class, "");
 		int status = response.getStatus();
 		assertEquals(204, status);
@@ -75,7 +75,7 @@ public class PersonTest {
 		Person person = new Person(2, "TEST", 24, "test@work.com");
 		ObjectMapper object = new ObjectMapper();
 		String data = object.writeValueAsString(person);
-		ClientResponse response = webResource.path("webApi").path("show/2").type(MediaType.APPLICATION_JSON)
+		ClientResponse response = webResource.path("webApi").path("show/edit/2").type(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON).put(ClientResponse.class, data);
 		int status = response.getStatus();
 		assertEquals(200, status);

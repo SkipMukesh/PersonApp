@@ -9,13 +9,19 @@
 <link rel="stylesheet" 
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>My First Task!</title>
+<style>
+	#img{
+		float:left;
+	}
+</style>
 </head>
 <body data-ng-app="appMain" style="background-image: url('image/background.jpg')">
-	<div id="img">
-		<div class="container-fluid">
-
-			<ul class="nav nav-pills">
-				<li><img src="image/Sag-logo.PNG"></li>
+	<div>
+		<div id="img">
+				<a href="http://www.softwareag.com" target="_blank"><img src="image/SAGHeaderLogo.png"></a>
+		</div>
+		<div class="container" id="display">
+			<ul class="nav nav-pills">			
 				<li data-ng-class="{active: nav.isActive('/')}"><a href="#/">
 					<i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
 				<li data-ng-class="{active: nav.isActive('/ad')}"><a
@@ -24,6 +30,7 @@
 					href="#/ed"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a></li>
 			</ul>
 		</div>
+
 	</div>
 	<div data-ng-view class="container" id="view"></div>
 

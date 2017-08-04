@@ -1,0 +1,40 @@
+<div>
+<br>
+	<div class="jumbotron">
+		<center>
+			<h1>Welcome to my first application!!</h1>
+			<h3>You can search, add, edit People details here.!</h3>
+			<h4>Dig in..!</h4>
+		</center>
+	</div>
+	<div></div>
+
+	<div class="row">
+		<form>
+	    <div class="form-group">
+			<div class="col-sm-12">
+				<input type="text" class="form-control" placeholder="Serarch here..." data-ng-model="search" autofocus>
+			</div>
+		</div> 
+
+		<br>
+			<table class="table table-hover">
+				<thead>
+					<th>Id</th>
+					<th>Email</th>
+					<th>Name</th>
+					<th>Age</th>
+				</thead>
+
+				<tbody data-ng-repeat="person in persons | filter: search">
+					<tr>
+						<td>{{person.psnId}}</td>
+						<td>{{person.psnName}}</td>
+						<td>{{person.psnMail}}</td>
+						<td>{{person.psnAge}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>

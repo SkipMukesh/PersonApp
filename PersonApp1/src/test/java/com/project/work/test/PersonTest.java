@@ -46,7 +46,7 @@ public class PersonTest {
 		ClientConfig config = new DefaultClientConfig();
 		Client client = Client.create(config);
 		WebResource webResource = client.resource(UriBuilder.fromUri("http://localhost:8080/PersonApp1/").build());
-		Person person = new Person(10, "TEST", 24, "test@work.com");
+		Person person = new Person(5, "test", 24, "test@work.com");
 		ObjectMapper object = new ObjectMapper();
 		String data = object.writeValueAsString(person);
 		ClientResponse response = webResource.path("webApi").path("show/add").type(MediaType.APPLICATION_JSON)

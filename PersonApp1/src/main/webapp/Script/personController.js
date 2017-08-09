@@ -14,7 +14,7 @@ app.controller('demoCtrl', [
 			$scope.persons;
 
 			function fetchAllPersons() {
-				console.log('entering fetchAll Persons in controller')
+				console.log('entering fetchAllPersons in controller')
 				personService.fetchAllPersons().then(function(data) {
 					console.log('before ' + data);
 					$scope.persons = data;
@@ -65,7 +65,7 @@ app.controller('demoCtrl', [
 			};
 
 			$scope.submitPerson = function() {
-				console.log("submit button")
+				console.log("edit->submit button")
 				$location.path('#/')
 			};
 

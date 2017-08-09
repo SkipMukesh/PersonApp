@@ -1,5 +1,6 @@
 package com.project.work.initial;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -10,56 +11,67 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import com.project.work.details.ListDetails;
-import com.project.work.getset.Person; 
+import com.project.work.getset.Person;
 
-@Path("/show")
+@SuppressWarnings("unused")
+@Path("/persons")
 public class Controller {
 
 	ListDetails listDetails = new ListDetails();
 
 	@GET
 	@Produces("application/json")
-	public List<Person> show() { 
-		return listDetails.getDetails();
-	}
-
-	@GET
-	@Path("/test")
-	public String test() {
-		return "test";
+	public Response show() {
+		List<Person> persons = listDetails.getDetails();
+		return Response.ok().entity(persons).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+				.header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
 	}
 
 	@GET
 	@Path("/{param}")
 	@Produces("application/json")
-	public Person getOne(@PathParam("param") int pnparm) { 
-		return listDetails.getOne(pnparm);
+	public Response PersongetOne(@PathParam("param") int pnparm) {
+		Person person = listDetails.getOne(pnparm);
+		return Response.ok().entity(person).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+				.header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
 	}
 
 	@POST
-	@Path("/add")
+	@Path("/")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Person addOne(Person pnparm) { 
-		return listDetails.addOne(pnparm);
+	public Response PersonaddOne(Person pnparm) {
+		listDetails.addOne(pnparm);
+		return Response.ok().entity(pnparm).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+				.header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
 	}
 
 	@PUT
-	@Path("/edit/{param}")
+	@Path("/{param}")
 	@Consumes("application/json")
 	@Produces("application/json")
-	public Person editOne(@PathParam("param") int pnparm, Person pnid) { 
+	public Response PersoneditOne(@PathParam("param") int pnparm, Person pnid) {
 		pnid.setPsnId(pnparm);
-		return listDetails.editOne(pnid);
+		listDetails.editOne(pnid);
+		return Response.ok().entity(pnparm).header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+				.header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
 	}
 
 	@DELETE
-	@Path("/delete/{param}")
+	@Path("/{param}")
 	@Produces("application/json")
-	public void deleteOne(@PathParam("param") int pnparm) {
+	public Response deleteOne(@PathParam("param") int pnparm) {
 		listDetails.deleteOne(pnparm);
+		return Response.ok().header("Access-Control-Allow-Origin", "*")
+				.header("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS")
+				.header("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With").build();
 	}
 
 }

@@ -1,21 +1,21 @@
 app.factory('personService', function($http) {
-	var URL = "http://localhost:8080/PersonApp1/webApi";
+	var URL = "http://mcmuke01:8080/PersonApp1/libraries";  // http://mcmuke01:8080/PersonApp1/webApi || mcmuke01 || localhost
 
 	var personService = this;
 	personService.fetchAllPersons = function() {
 		console.log('entering getAllBlogs')
-		return $http.get(URL + "/show").then(function(response) {
+		return $http.get(URL + "/persons").then(function(response) {
 			console.log(response)
 			return response.data
 		}, function(response) {
-			console.error('Error while getting all Blogs')
+			console.error('Error while getting all details')
 			return response.status;
 		});
 	};
 
 	personService.addPerson = function(person) {
 		console.log('personService ->' + person.psnName)
-		return $http.post(URL + "/show/add", person).then(function(response) {
+		return $http.post(URL + "/persons/", person).then(function(response) {
 			return response.data;
 		}, function(response) {
 			console.error("error in add part->personService")
@@ -25,7 +25,7 @@ app.factory('personService', function($http) {
 
 	  personService.editPerson = function(psnId, person) { 
 		  console.log("editPerson->personService")
-		  return $http.put(URL + "/show/edit/" + psnId, person).then(function(response) {
+		  return $http.put(URL + "/persons/" + psnId, person).then(function(response) {
 			  console.log(response.status)
 			  return response.data;
 				  }, function(error) {
@@ -36,7 +36,7 @@ app.factory('personService', function($http) {
 	  
 	  personService.deletePerson = function(psnId) {
 		  console.log("deletePerson->personService")
-		  return $http['delete'](URL + "/show/delete/" + psnId).then( function(response) { 
+		  return $http['delete'](URL + "/persons/" + psnId).then( function(response) { 
 			  return response.data;
 		  }, function(response) {
 				console.error("error in add part->personService")

@@ -1,45 +1,44 @@
 <div>
-<br>
-<br>
+<br> <br>
 	<h2>Edit Person Details..</h2>
-	<br>
-	<br>
+	<br> <br>	
     <form>
-        <table class="table table-striped">
+        <table class="table">
             <thead>
-            <th>#Id</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Age</th>
+            	<tr>
+		            <th>#Id</th>
+		            <th>Name</th>
+		            <th>Email</th>
+		            <th>Age</th>
+	            </tr>
             </thead>
-            <tbody>
-				<tbody data-ng-repeat="person in persons">
-                    <td>
-                        <input  name="person.psnId{{$index}}" data-ng-model="person.psnId" data-ng-disabled="!enabledEdit[{{$index}}]" />
-                    </td>
-                    <td>
-                        <input name="person.psnName{{$index}}" data-ng-model="person.psnName"  data-ng-disabled="!enabledEdit[{{$index}}]" />
-                    </td>
-                    <td>
-                        <input name="person.psnMail{{$index}}" data-ng-model="person.psnMail"  data-ng-disabled="!enabledEdit[{{$index}}]" />
-                    </td>
-                    <td>
-                        <input name="person.psnAge{{$index}}" data-ng-model="person.psnAge"  data-ng-disabled="!enabledEdit[{{$index}}]" />
-                    </td>
-                    <td>
-                        <div>
-                        
-                        	<button data-ng-show="!enabledEdit[{{$index}}]" data-ng-click="editPerson($index)" class="btn btn-warning">Edit</button>
-                            <button data-ng-show="enabledEdit[{{$index}}]" data-ng-click="edittedPerson(person)" class="btn btn-warning">Update</button>
-                            <button data-ng-click="deletePerson(person.psnId)" class="btn btn-danger">delete</button>
-                        </div>
-                    </td>
+			<tbody data-ng-repeat="person in persons">
+				<tr>
+	                <td>
+	                    <input  name="person.psnId{{$index}}" data-ng-model="person.psnId" data-ng-disabled="!enabledEdit[{{$index}}]" />
+	                </td>
+	                <td>
+	                    <input name="person.psnName{{$index}}" data-ng-model="person.psnName"  data-ng-disabled="!enabledEdit[{{$index}}]" />
+	                </td>
+	                <td>
+	                    <input name="person.psnMail{{$index}}" data-ng-model="person.psnMail"  data-ng-disabled="!enabledEdit[{{$index}}]" />
+	                </td>
+	                <td>
+	                    <input name="person.psnAge{{$index}}" data-ng-model="person.psnAge"  data-ng-disabled="!enabledEdit[{{$index}}]" />
+	                </td>
+	                <td>
+	                    <div>                   
+	                    	<button data-ng-show="!enabledEdit[{{$index}}]" data-ng-click="editPerson($index)" class="btn btn-warning">Edit</button>
+	                        <button data-ng-show="enabledEdit[{{$index}}]" data-ng-click="edittedPerson(person)" class="btn btn-warning">Update</button>
+	                        <button data-ng-click="deletePerson(person.psnId)" class="btn btn-danger">delete</button>
+	                    </div>
+	                </td>
                 </tr>
             </tbody>
         </table>
-        <button type="submit" class="btn btn-info btn-lg" data-ng-click="submitPerson()">Submit</button>
+        <button type="submit" class="btn btn-info btn-lg" data-ng-click="submitPerson()"><i class="fa fa-reply" aria-hidden="true"></i>Submit</button>
     	<br>
     	<br>
     </form>
-        	<p><strong>Hint.:</strong>Don't forget to click the update button after editing..
+    <p><strong>Hint.:</strong>Don't forget to click the update button after editing..
 </div>

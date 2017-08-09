@@ -1,52 +1,53 @@
 package com.project.work.getset;
 
-public class Person { 
+public class Person {
 
-	private int PsnId;
-	private String PsnName;
-	private int PsnAge;
-	private String PsnMail;
+	private int psnId;
+	private String psnName;
+	private int psnAge;
+	private String psnMail;
 
-	public Person() { 
+	public Person() {
 	}
 
-	public Person(int PsnId, String PsnName, int PsnAge, String PsnMail) { 
-		this.PsnId = PsnId;
-		this.PsnName = PsnName;
-		this.PsnAge = PsnAge;
-		this.PsnMail = PsnMail;
+	public Person(int psnId, String psnName, int psnAge, String psnMail) {
+		super();
+		this.psnId = psnId;
+		this.psnName = psnName;
+		this.psnAge = psnAge;
+		this.psnMail = psnMail;
 	}
 
 	public int getPsnId() {
-		return PsnId;
+		return psnId;
 	}
 
 	public void setPsnId(int psnId) {
-		PsnId = psnId;
+		this.psnId = psnId;
 	}
 
 	public String getPsnName() {
-		return PsnName;
+		return psnName;
 	}
 
 	public void setPsnName(String psnName) {
-		PsnName = psnName;
+		this.psnName = psnName;
 	}
 
 	public int getPsnAge() {
-		return PsnAge;
+		return psnAge;
 	}
 
 	public void setPsnAge(int psnAge) {
-		PsnAge = psnAge;
+		this.psnAge = psnAge;
 	}
 
 	public String getPsnMail() {
-		return PsnMail;
+		return psnMail;
 	}
 
 	public void setPsnMail(String psnMail) {
-		PsnMail = psnMail;
+		this.psnMail = psnMail;
 	}
 
 }

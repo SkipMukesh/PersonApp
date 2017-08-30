@@ -1,0 +1,44 @@
+<div class="row">
+	<br> <br>
+	<h2>Add Person Details..</h2>
+	<button class="btn btn-warning btn-lg" style="float: right"
+		data-ng-click="submitPerson()">
+		<i class="fa fa-hand-o-left" aria-hidden="true"></i>
+	</button>
+	<br> <br>
+	<form class="form-horizontal" data-ng-submit="addPerson()">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name">Name: *</label>
+			<div class="col-sm-8 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					<input type="text" class="form-control" placeholder="abcd..." data-ng-model="psn.psnName" required="true" autofocus>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="email">Email: *</label>
+			<div class="col-sm-8 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+					<input type="email" class="form-control" placeholder="abcd@work.com" data-ng-model="psn.psnMail" required="true">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="age">Age:</label>
+			<div class="col-sm-8 inputGroupContainer">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+					<input type="number" min="5" max="150" class="form-control" placeholder="123..." data-ng-model="psn.psnAge" required="true">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-info btn-lg"
+					data-ng-show="psn.psnMail && psn.psnName"><i class="fa fa-reply" aria-hidden="true"></i>Submit</button>
+			</div>
+		</div>
+	</form>
+</div>

@@ -11,6 +11,9 @@ import org.junit.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sag.getset.Person;
 
+/* This is for Elastic Search Test.
+ * Does nothing with PersonApp */
+
 public class ElasticSearchTest {
 
 	@Test
